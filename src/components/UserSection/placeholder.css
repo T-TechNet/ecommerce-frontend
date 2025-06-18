@@ -1,0 +1,80 @@
+.login-input-container .filled {
+    top: 7px;
+    left: 30px;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #00688b;
+    padding: 0 3px;
+    margin: 0 5px;
+  }
+
+  .register-container .filled {
+    top: 2px;
+    left: 8px;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #00688b;
+    padding: 0 3px;
+    margin: 0 5px;
+  }
+
+  .forget-password-container .filled {
+    top: -7px;
+    left: 8px;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #00688b;
+    padding: 0 3px;
+    margin: 0 5px;
+  }
+
+  .edit-input-container .filled {
+    top: 32px;
+    left: 5px;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #00688b;
+    padding: 0 3px;
+    margin: 0 5px;
+
+    @media only screen and (max-width: 759px) {
+      top: 22px;
+    }
+  }
+
+  .password-input-container .filled {
+    top: 12px;
+    left: 5px;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #00688b;
+    padding: 0 3px;
+    margin: 0 5px;
+
+  }
+
+  .feedback-dialog .filled {
+    top: 7px;
+    left: 20px;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #00688b;
+    padding: 0 3px;
+    margin: 0 5px;
+  }
+
+  
+  .feedback-popup .filled {
+    top: 7px;
+    left: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #00688b;
+    padding: 0 3px;
+    margin: 0 5px;
+  }

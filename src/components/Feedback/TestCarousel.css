@@ -1,0 +1,18 @@
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+
+.card {
+  overflow: hidden;
+  height: auto;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category {
+  position: relative;
+}

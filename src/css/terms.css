@@ -1,0 +1,17 @@
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:link, a:visited {
+    color: #00688b;
+
+  }
+  
+  a:link:active, a:visited:active {
+    color: #00688b;
+  }

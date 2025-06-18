@@ -1,0 +1,80 @@
+.wrapper {
+  /* display: flex;
+  justify-content: space-between;
+  margin: 40px 0; */
+  width: 100%;
+}
+/* for step name */
+.step-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* for step bar */
+.step-item:not(:first-child):before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  top: 12px;
+  right: 50%;
+ /* transform: translateY(-2400%); */
+ 
+  background-color: #B0BCC0;
+}
+/* for circle */
+.step {
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-bottom: 10px;
+  background-color:#B0BCC0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+  border-radius: 50%;
+  color: #fff;
+}
+/* for step active */
+.active .step {
+    background: #00688B;
+    }
+/* for step complete */
+.complete .step {
+    background: #E6F0F3;
+    color: green;
+    border: 2px solid green;
+}
+ p{
+    color: #667D85;
+    font-weight: 700;
+    font-size: 15px;
+}
+.active p{
+color: #00688B;
+}
+
+.complete p{
+  color: green;
+}
+
+.complete:not(:first-child):before,
+.active:not(:first-child):before{
+    background: #00688B;
+}
+
+/* mes tooltip */
+.tooltip {
+padding:.5rem;
+width: max-content;
+border-radius: .3rem;
+background: #fff;
+font-size: 12px;
+box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+line-height: 25px;
+
+}

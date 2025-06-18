@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: App.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: App.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Wrapping container file for rendering all components.
+ *
+ * It wraps the following component: 
+ * 
+ * (1) Left Side Categories Transition to show user product categories
+ * 
+ * (2) Right Side Login Transition to login for more features
+ * 
+ * (3) Main Home Component to route Landing page and all other pages
+ * 
+ * For transition, we used "react-transition-group" from material-ui library
+ * 
+ * @module App
+ */
+
+import React, { useState } from "react";
+import "./App.css";
+import { Transition } from "react-transition-group";
+import Sidenav from "./components/Navigation/Sidenav";
+import Home from "./pages/Home";
+import { useMenuContext } from "./context/MenuContext";
+import SideLogin from "./components/UserSection/SideLogin";
+import {
+  BrowserRouter as Router,
+  // Redirect,
+} from "react-router-dom";
+
+//for testing meta tag
+import { HelmetProvider } from "react-helmet-async";
+import SideUserPanel from "./components/UserSection/SideUserPanel";
+// import HelmetAsync from "./HelmetAsync";
+
+function App() {
+  const [navOpen, setNavOpen] = useState(false);
+  const [panelOpen, setPanelOpen] = useState(false);
+  const [userPanelOpen, setUserPanelOpen] = useState(false);
+  const { entryStore } = useMenuContext();
+
+  // // //for testing meta tag
+  //   const [pageTitle, setPageTitle] = React.useState('Welcome to Rangoon Discount');
+  //   const [pageDescription, setPageDescription] = React.useState('Shop, Save and Satisfy');
+  //   const [pageImage, setPageImage] = React.useState('https://64.media.tumblr.com/2dd87cefb5b9d598919585e2daa6c81b/5e8e6874d8682e50-d2/s640x960/348c7d37de5121294274bf0a367b16c56432b6e3.pnj')
+
+  //   console.log(pageTitle);
+  //   console.log(pageDescription);
+  //   console.log(pageImage);
+
+  //  // for testing meta tag Function to update page title and description dynamically
+  //  const updatePageMeta = (title, description) => {
+  //   setPageTitle(title);
+  //   setPageDescription(description);
+  // };
+
+  // // for testing meta tag Simulating page changes and updating meta dynamically
+  // React.useEffect(() => {
+  //   // Fetch page data based on current route or other logic
+  //   const currentPageData = fetchPageData();
+
+  //   // Update meta tags based on fetched page data
+  //   updatePageMeta(currentPageData.title, currentPageData.description);
+  // }, []);
+
+  //////////////////////
+
+  const openNav = () => {
+    setNavOpen(true);
+  };
+  const closeNav = () => {
+    setNavOpen(false);
+  };
+
+  const openPanel = () => {
+    setPanelOpen(true);
+  };
+
+  const closePanel = () => {
+    setPanelOpen(false);
+  };
+
+  const openUserPanel = () => {
+    setUserPanelOpen(true);
+  };
+
+  const closeUserPanel = () => {
+    setUserPanelOpen(false);
+  };
+
+  return (
+    &lt;div>
+      &lt;HelmetProvider>
+        {/* &lt;HelmetAsync title={pageTitle} description={pageDescription} image={pageImage}/> */}
+        &lt;Router>
+          {/* For Side Nav */}
+          &lt;Transition
+            in={navOpen &amp;&amp; entryStore}
+            timeout={300}
+            mountOnEnter
+            unmountOnExit
+          >
+            {(state) => {
+              return (
+                &lt;>
+                  &lt;Sidenav state={state} closeNav={closeNav} />
+                  &lt;div
+                    className="overlay"
+                    style={
+                      state === "entering"
+                        ? { animation: "show .3s forwards" }
+                        : state === "entered"
+                        ? { opacity: "1" }
+                        : { animation: "show .3s reverse forwards" }
+                    }
+                    onClick={closeNav}
+                  >&lt;/div>
+                &lt;/>
+              );
+            }}
+          &lt;/Transition>
+
+          {/* For Side Login Panel */}
+          &lt;Transition in={panelOpen} timeout={300} mountOnEnter unmountOnExit>
+            {(state) => {
+              return (
+                &lt;>
+                  &lt;SideLogin state={state} closePanel={closePanel} />
+                  &lt;div
+                    className="overlay"
+                    style={
+                      state === "entering"
+                        ? { animation: "show .3s forwards" }
+                        : state === "entered"
+                        ? { opacity: "1" }
+                        : { animation: "show .3s reverse forwards" }
+                    }
+                    onClick={closePanel}
+                  >&lt;/div>
+                &lt;/>
+              );
+            }}
+          &lt;/Transition>
+
+          {/* For Loggedin User Panel */}
+          &lt;Transition
+            in={userPanelOpen}
+            timeout={300}
+            mountOnEnter
+            unmountOnExit
+          >
+            {(state) => {
+              return (
+                &lt;>
+                  &lt;SideUserPanel state={state} closePanel={closeUserPanel} />
+                  &lt;div
+                    className="overlay"
+                    style={
+                      state === "entering"
+                        ? { animation: "show .3s forwards" }
+                        : state === "entered"
+                        ? { opacity: "1" }
+                        : { animation: "show .3s reverse forwards" }
+                    }
+                    onClick={closeUserPanel}
+                  >&lt;/div>
+                &lt;/>
+              );
+            }}
+          &lt;/Transition>
+
+          {/* Home Page */}
+          &lt;Home nav={openNav} login={openPanel} profile={openUserPanel} />
+        &lt;/Router>
+      &lt;/HelmetProvider>
+    &lt;/div>
+  );
+}
+
+export default App;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-index.html">index</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Aug 28 2023 16:50:04 GMT+0630 (Myanmar Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

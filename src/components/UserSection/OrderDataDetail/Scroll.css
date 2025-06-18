@@ -1,0 +1,8 @@
+.scrollable-content::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
+}
+.scrollable-content::-webkit-scrollbar-thumb {
+    width: 0;
+    background-color: transparent;
+  }

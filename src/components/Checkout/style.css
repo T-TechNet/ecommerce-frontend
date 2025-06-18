@@ -1,0 +1,25 @@
+.input-container .filled {
+    top: 2px;
+    left: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #00688b;
+    padding: 0 3px;
+    margin: 0 5px;
+  }
+
+  .box-container .filled {
+    top: 14px;
+    left: 8px;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #00688b;
+    padding: 0 3px;
+    margin: 0 5px;
+
+    @media only screen and (max-width: 759px) {
+      top: 3px;
+    }
+  }

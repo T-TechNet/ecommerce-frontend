@@ -1,0 +1,6 @@
+.PCcontainer{
+    @media (max-width: 768px) {
+        width: 30px;
+        margin-left: 380px;
+      }
+}

@@ -1,0 +1,7 @@
+.bottomSheet.open {
+    transform: translateY(0);
+  }
+
+.overlay.open {
+    transform: translateY(0);
+}

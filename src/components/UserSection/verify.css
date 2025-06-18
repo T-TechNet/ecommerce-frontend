@@ -1,0 +1,24 @@
+.loading-circle {
+    color: #00688b;
+    position: absolute;
+    top: 320px;
+    left: 210px;
+
+    @media only screen and (max-width: 759px) {
+        top: 320px;
+        left: 160px;
+      }
+}
+
+.resend-pw-reset-loading-circle {
+
+  color: #00688b;
+  position: absolute;
+  top: 375px;
+  left: 210px;
+
+  @media only screen and (max-width: 759px) {
+    top: 372px;
+    left: 163px;
+  }
+}

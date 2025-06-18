@@ -1,0 +1,10 @@
+.overview {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000;
+
+    @media screen and (max-width: 769px) {
+      font-size: 13px;
+    }
+}
