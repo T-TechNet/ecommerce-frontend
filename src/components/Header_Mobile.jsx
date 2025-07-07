@@ -15,7 +15,7 @@ import {
   // Hits,
   // Configure,
   // Highlight,
-} from "react-instantsearch-dom";
+} from "react-instantsearch";
 
 import searchClient from "../algolia";
 

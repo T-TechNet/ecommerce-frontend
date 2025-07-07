@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
 import "./bottomsheet.css";
 import "../../css/category.css";
-import { InstantSearch } from "react-instantsearch-dom";
+import { InstantSearch } from "react-instantsearch";
 
 import searchClient from "../../algolia";
 

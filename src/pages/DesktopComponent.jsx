@@ -111,262 +111,37 @@ const DesktopComponent = ({
         <Popup setUser={setUser} handleAddProduct={handleAddProduct} />
 
         <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <HomeDisplay
-                wishList={wishList}
-                handleAddProduct={handleAddProduct}
-                handleWishList={handleWishList}
-              />
-            }
-          />
-
-          <Route
-            exact
-            path="list/:category"
-            element={
-              <Category wishList={wishList} handleWishList={handleWishList} />
-            }
-          />
-          <Route
-            exact
-            path="list/:category/:type"
-            element={
-              <Category wishList={wishList} handleWishList={handleWishList} />
-            }
-          />
-          <Route
-            exact
-            path="list/:category/:type/:brand"
-            element={
-              <Category wishList={wishList} handleWishList={handleWishList} />
-            }
-          />
-
-          <Route
-            exact
-            path={"/searchResult/:input"}
-            element={
-              <Category wishList={wishList} handleWishList={handleWishList} />
-            }
-          />
-
-          <Route
-            exact
-            path="/:category/product/:id"
-            element={
-              <ProductDetail
-                click={login}
-                user={user}
-                setUser={setUser}
-                wishList={wishList}
-                handleAddProduct={handleAddProduct}
-                handleWishList={handleWishList}
-                deleteWishList={deleteWishList}
-                // setPageTitle={setPageTitle}
-                // setPageDescription={setPageDescription}
-                // setPageImage={setPageImage}
-              />
-            }
-          />
-          <Route exact path={"/testimonials"} element={<Testimonial />} />
-          <Route
-            exact
-            path={"/product-review"}
-            element={<ProductReviewDetail />}
-          />
-          <Route exact path="/*" element={<ErrorPage />} />
-          <Route exact path="/:username/profile" element={<UserProfile />} />
-          <Route exact path="/:username/addresses" element={<Address />} />
-          <Route exact path="/:username/orders" element={<Order />} />
-          <Route exact path="/login" element={<Login setUser={setUser} />} />
-          <Route exact path="/register" element={<Register click={login} />} />
-          <Route exact path="/forgot-password" element={<ForgetPassword />} />
-          <Route
-            exact
-            path="/reset-password/:id/:token"
-            element={<PasswordReset click={login} />}
-          />
-          <Route
-            exact
-            path="/verifyUserEmail/:username/:token"
-            element={<Confirmation />}
-          />
-          {/* <Route
-            exact
-            path="/user-confirmation/:username/:token"
-            element={<Confirmation />}
-          /> */}
-
-          <Route
-            exact
-            path="/wishlist"
-            element={
-              <WishList
-                user={user}
-                setUser={setUser}
-                cartItems={cartItems}
-                wishList={wishList}
-                setWishList={setWishList}
-                handleAddProduct={handleAddProduct}
-                deleteWishList={deleteWishList}
-              />
-            }
-          />
-
-          <Route
-            exact
-            path="/cart"
-            element={
-              <Cart
-                click={login}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-                handleAddProduct={handleAddProduct}
-                handleRemoveProduct={handleRemoveProduct}
-                deleteCartItem={deleteCartItem}
-                productTotal={productTotal}
-                wishList={wishList}
-                handleWishList={handleWishList}
-              />
-            }
-          />
-
-          <Route
-            exact
-            path="/checkout/contact"
-            element={
-              <Checkout
-                user={user}
-                setUser={setUser}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-                total={productTotal}
-              />
-            }
-          />
-
-          <Route
-            exact
-            path="/checkout-as"
-            element={
-              <BeforeCheckout
-                user={user}
-                setUser={setUser}
-                // cartItems={cartItems}
-                // setCartItems={setCartItems}
-                // total={productTotal}
-              />
-            }
-          />
-
-          <Route
-            exact
-            path="/checkout/payment"
-            element={
-              <Payment
-                user={user}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-                total={productTotal}
-              />
-            }
-          />
-
-          <Route
-            exact
-            path="/checkout/order-confirmed"
-            element={
-              <FinalOrder
-                user={user}
-                setCartItems={setCartItems}
-                cartItems={cartItems}
-                total={productTotal}
-              />
-            }
-          />
-
-          <Route
-            exact
-            path="/checkout/order-confirmation"
-            element={
-              <OrderConfirm
-                user={user}
-                setCartItems={setCartItems}
-                cartItems={cartItems}
-                total={productTotal}
-              />
-            }
-          />
-
-          <Route
-            exact
-            path="terms-and-conditions"
-            element={<TermsAndConditions />}
-          />
-          <Route exact path="about-us" element={<CompanyProfile />} />
-
-          <Route
-            exact
-            path="/myorders/:ordNum"
-            element={
-              <ViewOrderDetail
-                click={login}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-                handleAddProduct={handleAddProduct}
-                handleRemoveProduct={handleRemoveProduct}
-                deleteCartItem={deleteCartItem}
-                productTotal={productTotal}
-                wishList={wishList}
-                handleWishList={handleWishList}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/myorders/mobile/ordNum"
-            element={
-              <ViewDetailMobile
-                click={login}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-                handleAddProduct={handleAddProduct}
-                handleRemoveProduct={handleRemoveProduct}
-                deleteCartItem={deleteCartItem}
-                productTotal={productTotal}
-                wishList={wishList}
-                handleWishList={handleWishList}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/myorders/ordNum/cancel"
-            element={
-              <CancelDetail
-                click={login}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-                handleAddProduct={handleAddProduct}
-                handleRemoveProduct={handleRemoveProduct}
-                deleteCartItem={deleteCartItem}
-                productTotal={productTotal}
-                wishList={wishList}
-                handleWishList={handleWishList}
-              />
-            }
-          />
-
-          {/* oAuth  start
-          <Route exact path="/sign-up" Component={LogoutButton} />
-         <Route exact path="/sign-in" Component={SideLogin}/>
-        
-            oAuth end */}
+          <Route path="/" element={<HomeDisplay wishList={wishList} handleAddProduct={handleAddProduct} handleWishList={handleWishList} />} />
+          <Route path="list/:category" element={<Category wishList={wishList} handleWishList={handleWishList} />} />
+          <Route path="list/:category/:type" element={<Category wishList={wishList} handleWishList={handleWishList} />} />
+          <Route path="list/:category/:type/:brand" element={<Category wishList={wishList} handleWishList={handleWishList} />} />
+          <Route path={"/searchResult/:input"} element={<Category wishList={wishList} handleWishList={handleWishList} />} />
+          <Route path="/:category/product/:id" element={<ProductDetail click={login} user={user} setUser={setUser} wishList={wishList} handleAddProduct={handleAddProduct} handleWishList={handleWishList} deleteWishList={deleteWishList} />} />
+          <Route path={"/testimonials"} element={<Testimonial />} />
+          <Route path={"/product-review"} element={<ProductReviewDetail />} />
+          <Route path="/*" element={<ErrorPage />} />
+          <Route path=":username/profile" element={<UserProfile />} />
+          <Route path=":username/addresses" element={<Address />} />
+          <Route path=":username/orders" element={<Order />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/register" element={<Register click={login} />} />
+          <Route path="/forgot-password" element={<ForgetPassword />} />
+          <Route path="/reset-password/:id/:token" element={<PasswordReset click={login} />} />
+          <Route path="/verifyUserEmail/:username/:token" element={<Confirmation />} />
+          <Route path="/wishlist" element={<WishList user={user} setUser={setUser} cartItems={cartItems} wishList={wishList} setWishList={setWishList} handleAddProduct={handleAddProduct} deleteWishList={deleteWishList} />} />
+          <Route path="/cart" element={<Cart click={login} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} deleteCartItem={deleteCartItem} productTotal={productTotal} wishList={wishList} handleWishList={handleWishList} />} />
+          <Route path="/checkout/contact" element={<Checkout user={user} setUser={setUser} cartItems={cartItems} setCartItems={setCartItems} total={productTotal} />} />
+          <Route path="/checkout-as" element={<BeforeCheckout user={user} setUser={setUser} />} />
+          <Route path="/checkout/payment" element={<Payment user={user} cartItems={cartItems} setCartItems={setCartItems} total={productTotal} />} />
+          <Route path="/checkout/order-confirmed" element={<FinalOrder user={user} setCartItems={setCartItems} cartItems={cartItems} total={productTotal} />} />
+          <Route path="/checkout/order-confirmation" element={<OrderConfirm user={user} setCartItems={setCartItems} cartItems={cartItems} total={productTotal} />} />
+          <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="about-us" element={<CompanyProfile />} />
+          <Route path="/myorders/:ordNum" element={<ViewOrderDetail click={login} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} deleteCartItem={deleteCartItem} productTotal={productTotal} wishList={wishList} handleWishList={handleWishList} />} />
+          <Route path="/myorders/mobile/ordNum" element={<ViewDetailMobile click={login} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} deleteCartItem={deleteCartItem} productTotal={productTotal} wishList={wishList} handleWishList={handleWishList} />} />
+          <Route path="/myorders/ordNum/cancel" element={<CancelDetail click={login} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} deleteCartItem={deleteCartItem} productTotal={productTotal} wishList={wishList} handleWishList={handleWishList} />} />
           {/* oAuth  start */}
-          <Route exact path="/profile" Component={Profile} />
+          <Route path="/profile" Component={Profile} />
           {/* oAuth end */}
         </Routes>
         <Footer click={login} />

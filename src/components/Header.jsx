@@ -8,7 +8,7 @@ import logo from "../rangoon-discount.png";
 import LoginIcon from "@mui/icons-material/Login";
 import "../css/header.css";
 
-import { InstantSearch, SearchBox } from "react-instantsearch-dom";
+import { InstantSearch, SearchBox } from "react-instantsearch";
 
 import searchClient from "../algolia";
 
